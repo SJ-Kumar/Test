@@ -1,9 +1,46 @@
 <html lang="en">
-    <head>
-        <title>Title!</title>>
-     <link rel="stylesheet" href="styles.css">
-                </head>
-                <h1>Testing the CSS usage.</h1>
-<body>Hello, world!
-    </body>
+    <style>
+        #image {
+            align-items: center;
+        }
+        #content {
+            font-size: larger;
+            font-style: normal;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+    
+    
+        #image {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    #image > div
+    {
+    background-color: beige;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    }
+    
+        </style>
+           
+       <body>
+        <div id="image">
+        <img src="logo-final.png" width="400"> 
+    </div>
+    <div id="content">    Hi,
+        Greetings from <b>Margam Farms!</b><br>
+        <br>
+        Margam Farms Cold pressed Groundnut Oil is extracted from naturally matured groundnuts. <br>
+        •	100% pure oil. <br>
+        •	Products direct from farm.<br>
+        •	No preservatives. <br>
+        •	No chemicals.<br>
+        <br>
+        You can explore more about us at <a href="https://mobile.twitter.com/margamfarm">MargamFarm</a> twitter handle.
+       </div>
+       </body>
 </html>
