@@ -29,63 +29,18 @@ table, th, td {
     padding: 20px;
     width: 200px;
     }
-    .slider {
-        width: 500px;
-        height: 300px;
-        background-color: yellow;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0px;
-        text-align: center;
-        overflow: hidden;
-      }
-      .image-container {
-        width: 1500px;
-        background-color: pink;
-        height: 300px;
-        clear: both;
-        position: relative;
-        -webkit-transition: left 2s;
-        -moz-transition: left 2s;
-        -o-transition: left 2s;
-        transition: left 2s;
-      }
-      .slide {
-        float: left;
-        margin: 0px;
-        padding: 0px;
-        position: relative;
-      }
-      #slide-1:target ~ .image-container {
-        left: 0px;
-      }
-      #slide-2:target ~ .image-container {
-        left: -500px;
-      }
-      #slide-3:target ~ .image-container {
-        left: -1000px;
-      }
-      #slide-4:target ~ .image-container {
-        left: -1500px;
-      }
-      .buttons {
-        position: relative;
-        top: -20px;
-      }
-      .buttons a {
-        display: inline-block;
-        height: 15px;
-        width: 15px;
-        border-radius: 50px;
-        background-color: rgb(48, 4, 149);
-      }
+   
+      scroll-image {
+            position: absolute;
+            left: 400px;
+        }
 
         </style>
            
        <body>
         <div id="image">
         <img src="logo-final.png" width="400"> 
-    </div>
+    </div><br>
     <div id="content">    Hi,
         Greetings from <b>Margam Farms!</b><br>
         <br>
@@ -97,29 +52,75 @@ table, th, td {
         <br>
         You can explore more about us at <a href="https://mobile.twitter.com/margamfarm">MargamFarm</a> twitter handle.
        </div>
+       <br>
        <table>
-        <td>
-            <div class="slider">
-                <span id="slide-1"></span>
-                <span id="slide-2"></span>
-                <span id="slide-3"></span>
-                <span id="slide-4"></span>
-                <div class="image-container">
-                  <img src="images/FRGpwOMVsAACTvM.jfif" class="slide" width="500" height="300" />
-                  <img src="images/FRGpdCXUYAA8gpj.jfif" class="slide" width="500" height="300" />
-                  <img src="images/FRGpk9iUYAAU3Sz.jfif" class="slide" width="500" height="300" />
-                  <img src="images/FQjZbs4VUAM2rth.jfif" class="slide" width="500" height="300" />
-                </div>
-                <div class="buttons">
-                  <a href="#slide-1"></a>
-                  <a href="#slide-2"></a>
-                  <a href="#slide-3"></a>
-                  <a href="#slide-4"></a>
-                </div>
-            </div>
-            </td>
-       
         <tr>
+          <div id="scroll-image">
+            <img src="images/FRGpwOMVsAACTvM.jfif"  width="500" height="300" class="test" />
+                 <img src="images/FRGpdCXUYAA8gpj.jfif"  width="500" height="300" class="test"/>
+                 <img src="images/FRGpk9iUYAAU3Sz.jfif"  width="500" height="300" class="test"/>
+                 <img src="images/FQjZbs4VUAM2rth.jfif"  width="500" height="300" class="test"/>
+            </div>
+            </tr>
+            </table>
+    <script>
+        startImageTransition();
+ 
+        function startImageTransition() {
+            var images = document.getElementsByClassName("test");
+ 
+            for (var i = 0; i < images.length; ++i) {
+                images[i].style.opacity = 1;
+            }
+ 
+            var top = 1;
+ 
+            var cur = images.length - 1;
+ 
+            setInterval(changeImage, 3000);
+ 
+            async function changeImage() {
+ 
+                var nextImage = (1 + cur) % images.length;
+ 
+                images[cur].style.zIndex = top + 1;
+                images[nextImage].style.zIndex = top;
+ 
+                await transition();
+ 
+                images[cur].style.zIndex = top;
+ 
+                images[nextImage].style.zIndex = top + 1;
+ 
+                top = top + 1;
+ 
+                images[cur].style.opacity = 1;
+               
+                cur = nextImage;
+ 
+            }
+ 
+            function transition() {
+                return new Promise(function(resolve, reject) {
+                    var del = 0.01;
+ 
+                    var id = setInterval(changeOpacity, 10);
+ 
+                    function changeOpacity() {
+                        images[cur].style.opacity -= del;
+                        if (images[cur].style.opacity <= 0) {
+                            clearInterval(id);
+                            resolve();
+                        }
+                    }
+ 
+                })
+            }
+        }
+    </script>
+       <table>
+        
+          <tr>
             <th>Wood Pressed extraction...</th>
             <th>What our Customer says...</th>
           </tr>
