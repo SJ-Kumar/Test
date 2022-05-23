@@ -1,19 +1,12 @@
+from sqlite3.dbapi2 import _Parameters
 import requests
 from requests import Session
 import secrets
 from pprint import pprint as pp
 
-url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
-
-
-headers = {
-  'Accepts': 'application/json',
-  'X-CMC_PRO_API_KEY': secrets.API_KEY,
-}
-
-r = requests.get(url, headers=headers)
-
 class CMC:
+  ##url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
+
     def __init__(self, token):
         self.apiurl = 'https://pro-api.coinmarketcap.com'
         self.headers = headers = { 'Accepts': 'application/json', 'X-CMC_PRO_API_KEY': token,
@@ -26,7 +19,13 @@ class CMC:
         r = self.session.get(url)
         data = r.json()['data']
         return data
+    def getPrice(self, symbol):
+        url = self.apiurl + '/v1/cryptocurrency/quotes/latest'
+        parameters = {'symbol': symbol}
+        r = self.session.get(url)
+        data = r.json()['data']
+        return data    
 
 cmc = CMC(secrets.API_KEY)
 
-pp(cmc.getAllCoins())
+pp(cmc.getPrice('BTC'))
