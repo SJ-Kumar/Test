@@ -1,5 +1,5 @@
 ##bitcoin_api_url = 'https://api.coinmarketcap.com/v1/ticker/bitcoin'
-bitcoin_api_url = 'https://api.coinlayer.com/api/live?access_key=dd61c88c20c658209ab9639b8a5e29a9'
+bitcoin_api_url = 'http://api.coinlayer.com/api/live?access_key=dd61c88c20c658209ab9639b8a5e29a9'
 from http.client import responses
 from urllib import response
 import requests
