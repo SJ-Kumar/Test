@@ -19,11 +19,11 @@ class CMC:
         self.session = Session()
         self.session.headers.update (headers=headers) 
 
-    def getAllCoins(self):
-        url = self.apiurl + 'v1/cryptocurrency/map'
-        r = self.session.get(url)
-        data = r.json()['data']
-        return data
+   ## def getAllCoins(self):
+     ##   url = self.apiurl + 'v1/cryptocurrency/map'
+       ## r = self.session.get(url)
+        ## data = r.json()['data']
+        ## return data
 
 cmc = CMC(secrets.API_KEY)
 
