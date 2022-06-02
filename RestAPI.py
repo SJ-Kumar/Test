@@ -2,6 +2,7 @@ import requests
 from pprint import pprint as pp
 
 ##BASE_URL = 'https://margamfarms.onrender.com'
+
 BASE_URL = 'https://fakestoreapi.com'
 
 response = requests.get(f"{BASE_URL}/products?limit=3")
@@ -17,4 +18,5 @@ purchase_req = {
 }
 
 response = requests.post(f"{BASE_URL}/products", json=purchase_req)
+print ("You can view the response:")
 print(response.json())
