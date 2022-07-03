@@ -16,4 +16,4 @@ longitude = data['results'][0]['geometry']['location']['lng']
 formatted_address = data['results'][0]['formatted_address']
 
 print("Latitude:%s\nLongitude:%s\nFormatted Address:%s"
-      %(latitude, longitude,formatted_address))
+    %(latitude, longitude,formatted_address))
