@@ -10,5 +10,5 @@ def get_latest_bitcoin_price():
     responses
     ##return float (response_json[0]['price_usd'])
     ##def main():
-      ##      price = get_latest_bitcoin_price()
-        ##    print ("Bitcoin Price is:"+ price)
+    price = get_latest_bitcoin_price()
+    print ("Bitcoin Price is:"+ price)
