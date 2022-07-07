@@ -35,13 +35,11 @@ list.addEventListener('click', e => {
 const filterTodos = (term) => {
     Array.from(list.children)
     .filter((todo) => !todo.textContent.includes(term))
-    .forEach((todo) => todo.classList.add ('filtered'));
+    .forEach((todo) => todo.classList.add('filtered'));
     
     Array.from(list.children)
-    .filter((todo) =>  todo.textContent.includes(term))
-    .forEach((todo) => todo.classList.remove ('filtered'));
-
-
+    .filter((todo) => todo.textContent.includes(term))
+    .forEach((todo) => todo.classList.remove('filtered'));
         //console.log(todo.textContent);
         //return true;
     
